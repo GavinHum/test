@@ -1,0 +1,32 @@
+<script>
+const tests = {
+  userAgent: navigator.userAgent,
+  platform: navigator.platform,
+
+  arrayBuffer: typeof ArrayBuffer,
+  dataView: typeof DataView,
+  typedArrays: typeof Uint8Array,
+
+  weakRef: typeof WeakRef,
+  finalizationRegistry: typeof FinalizationRegistry,
+
+  sharedArrayBuffer: typeof SharedArrayBuffer,
+  webAssembly: typeof WebAssembly,
+
+  indexedDB:
+    window.indexedDB === null ? "null" :
+    typeof window.indexedDB,
+
+  localStorage: typeof localStorage,
+  requestAnimationFrame:
+    typeof requestAnimationFrame,
+
+  fontFace: typeof FontFace,
+  performance: typeof performance
+};
+
+document.getElementById("results").textContent =
+  JSON.stringify(tests, null, 2);
+</script>
+</body>
+</html>
