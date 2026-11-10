@@ -1,32 +1,34 @@
-<script>
-const tests = {
-  userAgent: navigator.userAgent,
-  platform: navigator.platform,
+viewable
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Switch 2 WebKit Research</title>
+</head>
+<body>
+  <h1>WebKit Reconnaissance</h1>
+  <pre id="results"></pre>
 
-  arrayBuffer: typeof ArrayBuffer,
-  dataView: typeof DataView,
-  typedArrays: typeof Uint8Array,
+  <script>
+    const tests = {
+      javascript: typeof window === "object",
+      promise: typeof Promise,
+      proxy: typeof Proxy,
+      weakRef: typeof WeakRef,
+      finalizationRegistry:
+        typeof FinalizationRegistry,
+      sharedArrayBuffer:
+        typeof SharedArrayBuffer,
+      wasm: typeof WebAssembly,
+      webgl: typeof WebGLRenderingContext,
+      indexedDB: typeof indexedDB,
+      serviceWorker:
+        "serviceWorker" in navigator,
+      userAgent: navigator.userAgent
+    };
 
-  weakRef: typeof WeakRef,
-  finalizationRegistry: typeof FinalizationRegistry,
-
-  sharedArrayBuffer: typeof SharedArrayBuffer,
-  webAssembly: typeof WebAssembly,
-
-  indexedDB:
-    window.indexedDB === null ? "null" :
-    typeof window.indexedDB,
-
-  localStorage: typeof localStorage,
-  requestAnimationFrame:
-    typeof requestAnimationFrame,
-
-  fontFace: typeof FontFace,
-  performance: typeof performance
-};
-
-document.getElementById("results").textContent =
-  JSON.stringify(tests, null, 2);
-</script>
+    document.getElementById("results").textContent =
+      JSON.stringify(tests, null, 2);
+  </script>
 </body>
 </html>
